@@ -1,4 +1,4 @@
-this.global=this;(function (global, factory) {
+"test";this.global=this;(function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('acorn')) :
   typeof define === 'function' && define.amd ? define(['acorn'], factory) :
   (global = global || self, global.Sval = factory(global.acorn));
