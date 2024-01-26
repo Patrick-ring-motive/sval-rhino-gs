@@ -3632,7 +3632,7 @@ this.global=this;(function (global, factory) {
               var run = function (opts) {
                   return last = last
                       .then(function () { return runAsync(iterator, assign({ fullRet: true }, opts)); })
-["catch"](function (err) {
+                      ["catch"](function (err) {
                       if (!hasCatch) {
                           hasCatch = true;
                           return Promise.reject(err);
