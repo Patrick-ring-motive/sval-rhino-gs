@@ -1,6 +1,8 @@
 # sval-rhino-gs
 [Sval](https://github.com/Siubaak/sval) for legacy Rhino engine on Google Apps Scripts
 
+* update: Google officially sunsetted this runtime in January 2026 in favor of v8. This repo will remain here as an archive. *
+
 This engine is enabled when you uncheck the Chrome V8 option in your apps script settings. Or if you have an older project.
 ![image](https://github.com/Patrick-ring-motive/sval-rhino-gs/assets/60206943/3d2d94f4-4758-4770-8c91-4fc2bf9165a1)
 ```
