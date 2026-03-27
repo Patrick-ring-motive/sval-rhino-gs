@@ -1,4 +1,5 @@
-void function Globals() {
+void
+function Globals() {
   const q = (varFn) => {
     try {
       return varFn?.();
@@ -10,10 +11,14 @@ void function Globals() {
   }
 
   const globalObject = q(() => globalThis) // works in most modern runtimes
-    ?? q(() => self) // also works in most modern runtimes
-    ?? q(() => global) // fallback for older nodejs
-    ?? q(() => window) // fallback for older browsers
-    ?? this ?? {}; // fallbacks for edge cases.
+    ??
+    q(() => self) // also works in most modern runtimes
+    ??
+    q(() => global) // fallback for older nodejs
+    ??
+    q(() => window) // fallback for older browsers
+    ??
+    this ?? {}; // fallbacks for edge cases.
 
   for (let x of ['globalThis', 'self', 'global']) {
     globalObject[x] = globalObject;
@@ -24,8 +29,7 @@ void function Globals() {
     const fn = args?.shift?.();
     return fn && new fn(...args);
   };
- }();
- 
+}();
 
 ! function(e, t) {
   "object" == typeof exports && "undefined" != typeof module ? module.exports = t() : "function" == typeof define && define.amd ? define(t) : (e = e || self).Sval = t()
@@ -2295,7 +2299,7 @@ void function Globals() {
   }, "undefined" != typeof Symbol && (d[Symbol.iterator] = function() {
     var t = this;
     return {
-      next : function next() {
+      next: function next() {
         var e = t.getToken();
         return {
           done: e.type === y.eof,
@@ -2748,7 +2752,7 @@ void function Globals() {
   function A(i, n) {
     var s, a, o, c = {
         label: 0,
-        sent : function sent() {
+        sent: function sent() {
           if (1 & o[0]) throw o[1];
           return o[1]
         },
@@ -2820,7 +2824,7 @@ void function Globals() {
     var t = "function" == typeof Symbol && e[Symbol.iterator],
       r = 0;
     return t ? t.call(e) : {
-      next : function next() {
+      next: function next() {
         return {
           value: (e = e && r >= e.length ? void 0 : e) && e[r++],
           done: !e
@@ -2918,19 +2922,19 @@ void function Globals() {
   }
   var Vt = Object.freeze({
     __proto__: null,
-    ThisExpression : function ThisExpression(e, t) {
+    ThisExpression: function ThisExpression(e, t) {
       var r = t.find(dt);
       if (r && !r.get()) throw new ReferenceError("Must call super constructor in derived class before accessing 'this' or returning from derived constructor");
       return t.find("this").get()
     },
-    ArrayExpression : function ArrayExpression(e, t) {
+    ArrayExpression: function ArrayExpression(e, t) {
       for (var r = [], i = 0; i < e.elements.length; i++) {
         var n = e.elements[i];
         "SpreadElement" === n.type ? r = r.concat(Tt(n, t)) : r.push(T(n, t))
       }
       return r
     },
-    ObjectExpression : function ObjectExpression(e, t) {
+    ObjectExpression: function ObjectExpression(e, t) {
       for (var r = {}, i = 0; i < e.properties.length; i++) {
         var n, s, a, o = e.properties[i];
         "SpreadElement" === o.type ? m(r, Tt(o, t)) : (n = void 0, s = o.key, n = o.computed ? T(s, t) : "Identifier" === s.type ? s.name : "" + Et(s), s = T(o.value, t), "init" === (o = o.kind) ? r[n] = s : "get" === o ? (a = U(r, n), f(r, n, {
@@ -2947,11 +2951,11 @@ void function Globals() {
       }
       return r
     },
-    FunctionExpression : function FunctionExpression(e, t) {
+    FunctionExpression: function FunctionExpression(e, t) {
       var r, i;
       return e.id && e.id.name ? (i = D(e, r = new C(t)), r["const"](e.id.name, i), i) : D(e, t)
     },
-    UnaryExpression : function UnaryExpression(e, t) {
+    UnaryExpression: function UnaryExpression(e, t) {
       var r = e.argument;
       switch (e.operator) {
         case "+":
@@ -2978,7 +2982,7 @@ void function Globals() {
           throw new SyntaxError("Unexpected token " + e.operator)
       }
     },
-    UpdateExpression : function UpdateExpression(e, t) {
+    UpdateExpression: function UpdateExpression(e, t) {
       var r, i = e.argument;
       if ("Identifier" === i.type) r = St(i, t, {
         getVar: !0
@@ -2993,7 +2997,7 @@ void function Globals() {
       if ("--" === e.operator) return r.set(i - 1), e.prefix ? r.get() : i;
       throw new SyntaxError("Unexpected token " + e.operator)
     },
-    BinaryExpression : function BinaryExpression(e, t) {
+    BinaryExpression: function BinaryExpression(e, t) {
       var r, i = "PrivateIdentifier" === e.left.type ? (r = e.left.name, (i = T(e.right, t))[k]) : (r = T(e.left, t), T(e.right, t));
       switch (e.operator) {
         case "==":
@@ -3044,7 +3048,7 @@ void function Globals() {
           throw new SyntaxError("Unexpected token " + e.operator)
       }
     },
-    AssignmentExpression : function AssignmentExpression(e, t) {
+    AssignmentExpression: function AssignmentExpression(e, t) {
       var r, i, n, s = e.left;
       if ("Identifier" === s.type)(n = St(s, t, {
         getVar: !0,
@@ -3096,7 +3100,7 @@ void function Globals() {
           throw new SyntaxError("Unexpected token " + e.operator)
       }
     },
-    LogicalExpression : function LogicalExpression(e, t) {
+    LogicalExpression: function LogicalExpression(e, t) {
       var r;
       switch (e.operator) {
         case "||":
@@ -3110,10 +3114,10 @@ void function Globals() {
       }
     },
     MemberExpression: It,
-    ConditionalExpression : function ConditionalExpression(e, t) {
+    ConditionalExpression: function ConditionalExpression(e, t) {
       return T(e.test, t) ? T(e.consequent, t) : T(e.alternate, t)
     },
-    CallExpression : function CallExpression(e, t) {
+    CallExpression: function CallExpression(e, t) {
       var r, i;
       if ("MemberExpression" === e.callee.type) {
         if (r = It(e.callee, t, {
@@ -3147,7 +3151,7 @@ void function Globals() {
       }
       return r && r[ie] && -1 !== s.toString().indexOf("[native code]") ? s.apply(r[ie], o) : s.apply(r, o)
     },
-    NewExpression : function NewExpression(e, t) {
+    NewExpression: function NewExpression(e, t) {
       var r, i = T(e.callee, t);
       if ("function" != typeof i) {
         if ("Identifier" === e.callee.type) r = e.callee.name;
@@ -3165,23 +3169,23 @@ void function Globals() {
       }
       return new(i.bind.apply(i, kt([void 0], n)))
     },
-    MetaProperty : function MetaProperty(e, t) {
+    MetaProperty: function MetaProperty(e, t) {
       return "new" === e.meta.name && "target" === e.property.name ? t.find(gt).get() : "import" === e.meta.name && "meta" === e.property.name ? {
         url: ""
       } : void 0
     },
-    SequenceExpression : function SequenceExpression(e, t) {
+    SequenceExpression: function SequenceExpression(e, t) {
       for (var r, i = 0; i < e.expressions.length; i++) r = T(e.expressions[i], t);
       return r
     },
-    ArrowFunctionExpression : function ArrowFunctionExpression(e, t) {
+    ArrowFunctionExpression: function ArrowFunctionExpression(e, t) {
       return D(e, t)
     },
-    TemplateLiteral : function TemplateLiteral(e, t) {
+    TemplateLiteral: function TemplateLiteral(e, t) {
       for (var r, i = e.quasis.slice(), n = e.expressions.slice(), s = ""; r = i.shift();) s += At(r), (r = n.shift()) && (s += T(r, t));
       return s
     },
-    TaggedTemplateExpression : function TaggedTemplateExpression(e, t) {
+    TaggedTemplateExpression: function TaggedTemplateExpression(e, t) {
       var r = T(e.tag, t),
         i = (n = e.quasi.quasis).map(function(e) {
           return e.value.cooked
@@ -3198,16 +3202,16 @@ void function Globals() {
       return r.apply(void 0, kt([j(i)], a))
     },
     TemplateElement: At,
-    ClassExpression : function ClassExpression(e, t) {
+    ClassExpression: function ClassExpression(e, t) {
       var r, i;
       return e.id && e.id.name ? (i = li(e, r = new C(t)), r["const"](e.id.name, i), i) : li(e, t)
     },
     Super: Pt,
     SpreadElement: Tt,
-    ChainExpression : function ChainExpression(e, t) {
+    ChainExpression: function ChainExpression(e, t) {
       return T(e.expression, t)
     },
-    ImportExpression : function ImportExpression(e, t) {
+    ImportExpression: function ImportExpression(e, t) {
       var r, i = t.global(),
         e = T(e.source, t);
       return (t = i.find(yt + e)) && (i = t.get()) && ("function" == typeof i ? r = i() : "object" == typeof i && (r = i)), r && "object" == typeof r ? Promise.resolve(r) : Promise.reject(new TypeError('Failed to resolve module specifier "' + e + '"'))
@@ -3312,7 +3316,7 @@ void function Globals() {
   });
   var Bt, Mt = Object.freeze({
     __proto__: null,
-    Program : function Program(e, t) {
+    Program: function Program(e, t) {
       for (var r = 0; r < e.body.length; r++) T(e.body[r], t)
     }
   });
@@ -3733,14 +3737,14 @@ void function Globals() {
   }
   var Sr = Object.freeze({
     __proto__: null,
-    ThisExpression : function ThisExpression(e, t) {
+    ThisExpression: function ThisExpression(e, t) {
       var r;
       return A(this, function(e) {
         if ((r = t.find(dt)) && !r.get()) throw new ReferenceError("Must call super constructor in derived class before accessing 'this' or returning from derived constructor");
         return [2, t.find("this").get()]
       })
     },
-    ArrayExpression : function ArrayExpression(t, r) {
+    ArrayExpression: function ArrayExpression(t, r) {
       var i, n, s, a, o, c, h;
       return A(this, function(e) {
         switch (e.label) {
@@ -3761,7 +3765,7 @@ void function Globals() {
         }
       })
     },
-    ObjectExpression : function ObjectExpression(t, r) {
+    ObjectExpression: function ObjectExpression(t, r) {
       var i, n, s, a, o, c, h, u, l, p, d;
       return A(this, function(e) {
         switch (e.label) {
@@ -3802,13 +3806,13 @@ void function Globals() {
         }
       })
     },
-    FunctionExpression : function FunctionExpression(t, r) {
+    FunctionExpression: function FunctionExpression(t, r) {
       var i, n;
       return A(this, function(e) {
         return t.id && t.id.name ? (i = new C(r), n = L(t, i), i["const"](t.id.name, n), [2, n]) : [2, L(t, r)]
       })
     },
-    UnaryExpression : function UnaryExpression(t, r) {
+    UnaryExpression: function UnaryExpression(t, r) {
       var i;
       return A(this, function(e) {
         switch (e.label) {
@@ -3878,7 +3882,7 @@ void function Globals() {
         }
       })
     },
-    UpdateExpression : function UpdateExpression(t, r) {
+    UpdateExpression: function UpdateExpression(t, r) {
       var i, n, s;
       return A(this, function(e) {
         switch (e.label) {
@@ -3903,7 +3907,7 @@ void function Globals() {
         }
       })
     },
-    BinaryExpression : function BinaryExpression(t, r) {
+    BinaryExpression: function BinaryExpression(t, r) {
       var i, n;
       return A(this, function(e) {
         switch (e.label) {
@@ -3969,7 +3973,7 @@ void function Globals() {
         }
       })
     },
-    AssignmentExpression : function AssignmentExpression(t, r) {
+    AssignmentExpression: function AssignmentExpression(t, r) {
       var i, n, s, a, o;
       return A(this, function(e) {
         switch (e.label) {
@@ -4036,7 +4040,7 @@ void function Globals() {
         }
       })
     },
-    LogicalExpression : function LogicalExpression(t, r) {
+    LogicalExpression: function LogicalExpression(t, r) {
       var i, n, s, a;
       return A(this, function(e) {
         switch (e.label) {
@@ -4082,7 +4086,7 @@ void function Globals() {
       })
     },
     MemberExpression: xr,
-    ConditionalExpression : function ConditionalExpression(t, r) {
+    ConditionalExpression: function ConditionalExpression(t, r) {
       var i;
       return A(this, function(e) {
         switch (e.label) {
@@ -4101,7 +4105,7 @@ void function Globals() {
         }
       })
     },
-    CallExpression : function CallExpression(t, r) {
+    CallExpression: function CallExpression(t, r) {
       var i, n, s, a, o, c, h, u, l, p, d, f, m;
       return A(this, function(e) {
         switch (e.label) {
@@ -4155,7 +4159,7 @@ void function Globals() {
         }
       })
     },
-    NewExpression : function NewExpression(t, r) {
+    NewExpression: function NewExpression(t, r) {
       var i, n, s, a, o, c, h, u, l;
       return A(this, function(e) {
         switch (e.label) {
@@ -4188,14 +4192,14 @@ void function Globals() {
         }
       })
     },
-    MetaProperty : function MetaProperty(t, r) {
+    MetaProperty: function MetaProperty(t, r) {
       return A(this, function(e) {
         return "new" === t.meta.name && "target" === t.property.name ? [2, r.find(gt).get()] : "import" === t.meta.name && "meta" === t.property.name ? [2, {
           url: ""
         }] : [2]
       })
     },
-    SequenceExpression : function SequenceExpression(t, r) {
+    SequenceExpression: function SequenceExpression(t, r) {
       var i, n;
       return A(this, function(e) {
         switch (e.label) {
@@ -4212,12 +4216,12 @@ void function Globals() {
         }
       })
     },
-    ArrowFunctionExpression : function ArrowFunctionExpression(t, r) {
+    ArrowFunctionExpression: function ArrowFunctionExpression(t, r) {
       return A(this, function(e) {
         return [2, L(t, r)]
       })
     },
-    TemplateLiteral : function TemplateLiteral(t, r) {
+    TemplateLiteral: function TemplateLiteral(t, r) {
       var i, n, s, a, o, c;
       return A(this, function(e) {
         switch (e.label) {
@@ -4236,7 +4240,7 @@ void function Globals() {
         }
       })
     },
-    TaggedTemplateExpression : function TaggedTemplateExpression(t, r) {
+    TaggedTemplateExpression: function TaggedTemplateExpression(t, r) {
       var i, n, s, a, o, c, h;
       return A(this, function(e) {
         switch (e.label) {
@@ -4263,7 +4267,7 @@ void function Globals() {
       })
     },
     TemplateElement: br,
-    ClassExpression : function ClassExpression(t, r) {
+    ClassExpression: function ClassExpression(t, r) {
       var i, n;
       return A(this, function(e) {
         switch (e.label) {
@@ -4280,7 +4284,7 @@ void function Globals() {
     },
     Super: wr,
     SpreadElement: kr,
-    ChainExpression : function ChainExpression(t, r) {
+    ChainExpression: function ChainExpression(t, r) {
       return A(this, function(e) {
         switch (e.label) {
           case 0:
@@ -4290,7 +4294,7 @@ void function Globals() {
         }
       })
     },
-    ImportExpression : function ImportExpression(t, r) {
+    ImportExpression: function ImportExpression(t, r) {
       var i, n, s, a;
       return A(this, function(e) {
         switch (e.label) {
@@ -4301,7 +4305,7 @@ void function Globals() {
         }
       })
     },
-    YieldExpression : function YieldExpression(t, r) {
+    YieldExpression: function YieldExpression(t, r) {
       var i, n;
       return A(this, function(e) {
         switch (e.label) {
@@ -4320,7 +4324,7 @@ void function Globals() {
         }
       })
     },
-    AwaitExpression : function AwaitExpression(t, r) {
+    AwaitExpression: function AwaitExpression(t, r) {
       var i;
       return A(this, function(e) {
         switch (e.label) {
@@ -4878,7 +4882,7 @@ void function Globals() {
           return [5, P(V(n.right, s))];
         case 1:
           return (a = e.sent(), n.await) ? (t = a, o = (r = "function" == typeof Symbol ? (r = t[Symbol.asyncIterator]) || t[Symbol.iterator] : r) ? r.call(t) : "function" == typeof t.next ? t : (i = 0, {
-            next : function next() {
+            next: function next() {
               return {
                 value: (t = t && i >= t.length ? void 0 : t) && t[i++],
                 done: !t
@@ -5497,7 +5501,7 @@ void function Globals() {
         i = Promise.resolve(),
         n = !1,
         e = {
-          next : function next(e) {
+          next: function next(e) {
             return t({
               res: e
             })
