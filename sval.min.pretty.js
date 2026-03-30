@@ -1,4 +1,5 @@
 void
+
 function Globals() {
   const q = (varFn) => {
     try {
